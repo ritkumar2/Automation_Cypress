@@ -11,7 +11,18 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
-//
+
+// This is a command for select module name
+Cypress.Commands.add("selectModule", (moduleName) => {
+          cy.get('.navbar-collapse > :nth-child(1) > .nav-item').each(($el,index,$list)=>{
+             if($el.text().includes(moduleName))
+                 {
+                  cy.get('.navbar-collapse > :nth-child(1) > .nav-item').eq(index).click()
+                  //cy.get('.nav-link').eq(index).click()
+                 }
+
+      } )
+})
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
