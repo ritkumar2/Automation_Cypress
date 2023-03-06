@@ -2,5 +2,6 @@
   "name": "rikumar",
   "password": "::MDQ3&v:<VsbQvC",
   "url": "http://mada-dashboard-qa.decisionresourcesgroup.com/users/sign_in",
-  "moduleName": ["Payer Summary"]
+  "moduleName": ["Payer Summary"],
+  "linksName": "ACTIVE"
 }

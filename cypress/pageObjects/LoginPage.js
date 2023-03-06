@@ -1,15 +1,15 @@
 class LoginPage
 {
 
-    enterUserName(){
+    getEnterUserName(){
         return cy.get('input[placeholder="Username"]')
         }
 
-    enterPassword(){
+    getEnterPassword(){
          return cy.get('#user_password')
         }
 
-        loginBtn(){
+    getLoginBtn(){
           return cy.get('.submit')
         }
 

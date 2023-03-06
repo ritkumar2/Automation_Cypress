@@ -1,6 +1,7 @@
 /// <reference types="Cypress" />
 import LoginPage from '../pageObjects/LoginPage'
-describe('My First Test Suite',function()
+import DashboardPage from '../pageObjects/DashboardPage'
+describe('My First Test',function()
 {
 
     before(function(){
@@ -12,19 +13,29 @@ describe('My First Test Suite',function()
     it('User on Login Page',function(){
 
         const loginPage=new LoginPage();
+        const dashboardPage=new DashboardPage();
     // open the url
         cy.visit(this.data.url)
 
     // Enter user credential
-        loginPage.enterUserName().type(this.data.name)
-        loginPage.enterPassword().type(this.data.password)
-         loginPage.loginBtn().click();
+        loginPage.getEnterUserName().type(this.data.name)
+        loginPage.getEnterPassword().type(this.data.password)
+        loginPage.getLoginBtn().click();
 
          cy.config('pageLoadTimeout')
+
+
 
     // Navigate module page
          this.data.moduleName.forEach(function(element){
          cy.selectModule(element)
+        })
+
+    // Navigate links
+        this.data.linksName.forEach(function(element){
+             cy.selectLinks(element)
+
          })
+
     } )
 })
