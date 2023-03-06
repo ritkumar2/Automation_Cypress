@@ -6,7 +6,7 @@ class LoginPage
         }
 
     enterPassword(){
-         return cy.get('#user_password').type(this.data.password)
+         return cy.get('#user_password')
         }
 
         loginBtn(){
