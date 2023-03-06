@@ -26,12 +26,14 @@ Cypress.Commands.add("selectModule", (moduleName) => {
 
 // This is a command for select links
 Cypress.Commands.add("selectLinks", (linksName) => {
-          cy.get('.summary-link').each(($el,index,$list)=>{
+
+          cy.get('#summary-table > thead > tr>th').each(($el,index,$list)=>{
               if($el.text().includes(linksName))
                   {
-                  cy.get('.summary-link').eq(index).click()
+                  cy.config('pageLoadTimeout')
 
-                     }
+                  cy.get('#summary-table > tbody > tr>td').eq(index).click()
+                  }
 
           } )
   })

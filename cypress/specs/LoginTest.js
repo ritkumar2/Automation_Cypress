@@ -12,20 +12,18 @@ describe('My First Test',function()
     })
     it('User on Login Page',function(){
 
+
         const loginPage=new LoginPage();
-        const dashboardPage=new DashboardPage();
+       // const dashboardPage=new DashboardPage();
     // open the url
-        cy.visit(this.data.url)
+        cy.visit(Cypress.env('url'))
 
     // Enter user credential
         loginPage.getEnterUserName().type(this.data.name)
         loginPage.getEnterPassword().type(this.data.password)
         loginPage.getLoginBtn().click();
 
-         cy.config('pageLoadTimeout')
-
-
-
+       Cypress.config('defaultCommandTimeout',8000)
     // Navigate module page
          this.data.moduleName.forEach(function(element){
          cy.selectModule(element)
